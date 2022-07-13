@@ -29,6 +29,10 @@ public class Test {
 //        System.out.println(sb);
 //        sb.delete(0,5);
 //        System.out.println(sb.length() );
+        int n=100;
+       String string= String.valueOf(n);
+        System.out.println(string.charAt(0));
+        System.out.println(1+Integer.parseInt(String.valueOf(string.charAt(0))));
 
 
     }
