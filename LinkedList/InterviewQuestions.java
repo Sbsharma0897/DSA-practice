@@ -178,6 +178,52 @@ public class InterviewQuestions {
         return head;
     }
 
+    //This is my approach, dont recommed to use for loop and use while loop.
+    public static ListNode reverseBetweennew(ListNode head, int m, int n)
+    {
+
+        if(m==n)
+        {
+            return head;
+        }
+
+        ListNode current=head;
+        ListNode pre=null;
+        int count=1;
+
+        while(current!=null && count!=m)
+        {
+            pre=current;
+            current=current.next;
+            count++;
+        }
+        ListNode last=pre;
+        ListNode newTail=current;
+
+        ListNode forward=current.next;
+        while(current!=null && count!=n)
+        {
+            forward=current.next;
+            current.next=pre;
+            pre=current;
+            current=forward;
+            count++;
+        }
+        forward=current.next;
+        current.next=pre;
+
+        if(last==null)
+        {
+            head=current;
+        }
+        else
+        {
+            last.next=current;
+        }
+        newTail.next=forward;
+        return head;
+    }
+
 
     // google, amazon, facebook, microsoft: https://leetcode.com/problems/reverse-nodes-in-k-group/
     public ListNode reverseKGroup(ListNode head, int k) {
