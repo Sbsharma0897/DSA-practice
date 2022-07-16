@@ -2,7 +2,8 @@ import java.util.Arrays;
 
 public class MergeSort {
     public static void main(String[] args) {
-        int[] array={6,3,9,5,2,8};
+        int[] array={7 ,6 ,5 ,4, 3 ,2, 1};
+
         int start=0;
         int end=array.length-1;
         divide(array,start,end);

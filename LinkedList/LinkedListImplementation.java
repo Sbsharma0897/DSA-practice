@@ -1,3 +1,5 @@
+import java.util.HashSet;
+
 public class LinkedListImplementation {
 
     Node head;
@@ -182,6 +184,9 @@ public class LinkedListImplementation {
         LL.printList();
         LL.head=LL.insertRec(8,2,LL.head);
         LL.printList();
+        HashSet<Node> set=new HashSet<>();
+        set.add(LL.head);
+        System.out.println(set.contains(LL.head.next));
 
 
     }
