@@ -1,6 +1,6 @@
 public class PaintersPartition {
     public static void main(String[] args) {
-        
+
     }
     static long minTime(int[] A,int N,int M){
         long min=0;
