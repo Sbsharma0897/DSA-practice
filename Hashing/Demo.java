@@ -22,7 +22,14 @@ public class Demo {
 //////
 //////        System.out.println(map);
 ////        String anme="sandeep";
-        
+//        int a=6;
+//        int b =6;
+//        int c=8;
+//        int d=2;
+//        List<Integer> array= Arrays.asList(a,b,c,d);
+//        System.out.println(array);
+
+
 
 
 
