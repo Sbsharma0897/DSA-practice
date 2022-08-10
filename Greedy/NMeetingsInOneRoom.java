@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class NMeetingsInOneRoom {
+public class  NMeetingsInOneRoom {
     public static void main(String[] args) {
  //https://practice.geeksforgeeks.org/problems/n-meetings-in-one-room-1587115620/1
  //There is one meeting room in a firm. There are N meetings in the form of (start[i],
