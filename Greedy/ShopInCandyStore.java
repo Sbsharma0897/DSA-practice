@@ -8,7 +8,7 @@ public class ShopInCandyStore {
         // minimum amount of money you have to spend to buy all the N different candies. Secondly, you have to find what is the maximum amount of money you have to spend to buy all the N different candies.
     }
     static ArrayList<Integer> candyStore(int candies[],int n,int K){
-
+  //see below solutiion
         ArrayList<Integer> ans=new ArrayList<>();
         Arrays.sort(candies);
         int min=0;
@@ -27,7 +27,7 @@ public class ShopInCandyStore {
         {
             dummy[i]=candies[i];
         }
-
+       // comparator works only on non primitive data types or Objects only;
         Arrays.sort(dummy, (a,b)->
         {
             if(a>b)
@@ -58,4 +58,45 @@ public class ShopInCandyStore {
         return ans;
 
     }
+
+
+
+
+
+
+
+
+
+
+    static ArrayList<Integer> candyStore(int candies[],int N,int K){
+        ArrayList<Integer> ans=new ArrayList<>();
+        int minamount=0;
+        int maxamount=0;
+
+        Arrays.sort(candies);
+        ;
+        int i=0;
+        int end=N-1;
+        while(i<=end)
+        {
+            minamount +=candies[i];
+            i++;
+            end=end-K;
+
+        }
+
+        i=N-1;
+        int start=0;
+        while(i>=start)
+        {
+            maxamount +=candies[i];
+            i=i-1;
+            start=start+K;
+        }
+        ans.add(minamount);
+        ans.add(maxamount);
+        return ans;
+    }
+
+
 }

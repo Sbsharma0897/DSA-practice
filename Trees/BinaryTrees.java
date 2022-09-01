@@ -132,7 +132,7 @@ class BinaryTree
     {
         //TC-O(n)
        int left=heightOfTree(root.left);
-       int right=heightOfTree(root.left);
+       int right=heightOfTree(root.right);
 
        int dia=left+right+1;
        if(dia>maxdia)

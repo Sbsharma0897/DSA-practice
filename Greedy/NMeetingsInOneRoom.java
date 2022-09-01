@@ -70,4 +70,61 @@ public class  NMeetingsInOneRoom {
         return maxmeeting;
     }
 
+
+
+
+
+
+
+
+
+
+
+    {
+        int start;
+        int end;
+        Item(int start,int end)
+        {
+            this.start=start;
+            this.end=end;
+        }
+    }
+    //Function to find the maximum number of meetings that can
+    //be performed in a meeting room.
+    public static int maxMeetings(int start[], int end[], int n)
+    {
+        ArrayList<Item> array=new ArrayList<>();
+        for(int i=0;i<n;i++)
+        {
+            array.add(new Item(start[i],end[i]));
+        }
+        Collections.sort(array,(a,b)->
+        {
+            if(a.end>b.end)
+            {
+                return 1;
+            }
+            else if(a.end<b.end)
+            {
+                return -1;
+            }
+            else
+            {
+                return 0;
+            }
+        });
+        int count=1;
+        int endtime=array.get(0).end;
+        for(int i=1;i<n;i++)
+        {
+            if(array.get(i).start>endtime)
+            {
+                count++;
+                endtime=array.get(i).end;
+            }
+
+        }
+        return count;
+    }
+
 }

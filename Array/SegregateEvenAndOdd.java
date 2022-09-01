@@ -5,6 +5,33 @@ public class SegregateEvenAndOdd {
         // The program should put all even numbers first in sorted order, and then odd
         // numbers in sorted order.
     }
+
+
+    public static void OneMethod() {
+        //TC-O(N)
+        //SC-O(1);
+        int left=0;
+        int right=n-1;
+        while(left<right)
+        {
+            while(left<right && arr[left]%2==0)
+            {
+                left++;
+            }
+            while(left<right && arr[right]%2==1)
+            {
+                right--;
+            }
+            if(left<right)
+            {
+                int temp=arr[left];
+                arr[left]=arr[right];
+                arr[right]=temp;
+                left++;
+                right--;
+            }
+        }
+    }
     void segregateEvenOdd(int arr[], int n) {
 
         ArrayList<Integer> even=new ArrayList<>();
