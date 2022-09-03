@@ -84,4 +84,45 @@ public class LeftVIew {
     }
 
 
+
+
+
+
+
+
+    public List<Integer> leftView(TreeNode root){
+
+        List<Integer> ans=new ArrayList<>();
+        Queue<TreeNode> queue= new LinkedList<>();
+        queue.add(root);
+
+        while(!queue.isEmpty())
+        {
+            int size=queue.size();
+            for(int i=0;i<size;i++)
+            {
+                TreeNode dummy=queue.remove();
+
+
+                if(dummy.left!=null)
+                {
+                    queue.add(dummy.left);
+                }
+                if(dummy.right!=null)
+                {
+                    queue.add(dummy.right);
+                }
+                if(i==0)
+                {
+                    ans.add(dummy.data);
+                }
+            }
+
+
+        }
+        return ans;
+
+
+    }
+
 }
