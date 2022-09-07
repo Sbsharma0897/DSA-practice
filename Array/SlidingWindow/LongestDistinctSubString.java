@@ -30,7 +30,7 @@ public class LongestDistinctSubString {
                     maxlength=x;
                 }
             }
-            else
+            else  if(map.size()>(j-i+1))
             {
                 while(map.size()!=(j-i+1))
                 {

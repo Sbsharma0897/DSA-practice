@@ -31,4 +31,51 @@ public class SubarraywithGivenSum {
         return ans;
 
     }
+
+
+
+
+
+
+
+
+
+
+    static ArrayList<Integer> subarraySum(int[] arr, int n, int s)
+    {
+        ArrayList<Integer> ans=new ArrayList<>();
+        int i=0;
+        int j=0;
+        int sum=0;
+        for(j=0;j<n;j++)
+        {
+            sum=sum+arr[j];
+
+            if(sum==s)
+            {
+                ans.add(i+1);
+                ans.add(j+1);
+                return ans;
+            }
+            else if(sum>s)
+            {
+                while(sum>s)
+                {
+                    sum=sum-arr[i];
+                    i++;
+                }
+                if(sum==s)
+                {
+                    ans.add(i+1);
+                    ans.add(j+1);
+                    return ans;
+                }
+            }
+
+        }
+        //System.out.println(sum+" "+i+" "+j);
+        ans.add(-1);
+        return ans;
+
+    }
 }
