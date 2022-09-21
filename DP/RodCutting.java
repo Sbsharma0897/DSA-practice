@@ -1,6 +1,6 @@
 public class RodCutting {
     public static void main(String[] args) {
-   //https://practice.geeksforgeeks.org/problems/rod-cutting0840
+   //
         // /1?utm_source=youtube&utm_medium=collabteam_anujbhaiya&utm_campaign=rodcutting
         //Given a rod of length N inches and an array of prices, price[] that contains
         // prices of all pieces of size smaller than N. Determine the maximum value

@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class MaximumwaysOfCoins {
     public static void main(String[] args) {
    //https://practice.geeksforgeeks.org/problems/coin-change2448/1

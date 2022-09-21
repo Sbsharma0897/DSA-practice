@@ -32,6 +32,41 @@ public class MinCostClimibg {
 
 
 
+
+    static int minCostClimbingStairs(int[] cost , int N) {
+
+        int[] dp=new int[N];
+        Arrays.fill(dp,-1);
+        return Math.min(helper(cost,N,0,dp),helper(cost,N,1,dp));
+    }
+    static int helper(int[] cost,int N,int index,int[] dp)
+    {
+        if(index==N)
+        {
+            return 0;
+        }
+        if(index>N)
+        {
+            return Integer.MAX_VALUE;
+        }
+
+        if(dp[index]!=-1)
+        {
+            return dp[index];
+        }
+
+        int returned=Math.min(helper(cost,N,index+1,dp),helper(cost,N,index+2,dp));
+        dp[index]=returned+cost[index];
+        return dp[index];
+    }
+
+
+
+
+
+
+
+
     static int minCostClimbingStairs(int[] cost , int N) {
 //MEMOIZATION
         int dp[]=new int[N+1];
