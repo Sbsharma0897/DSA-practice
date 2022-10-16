@@ -78,4 +78,51 @@ public class PermutationIMPORTANT {
 
     }
 
+
+
+
+
+
+
+    class Solution {
+        public List<List<Integer>> permute(int[] nums) {
+
+            List<List<Integer>> list=new ArrayList<>();
+
+
+            int index=0;
+            solve(nums,index,list);
+            return list;
+
+        }
+        public void solve(int[] nums,int index,List<List<Integer>> list)
+        {
+            if(index==nums.length)
+            {
+                List<Integer> output=new ArrayList<>();
+                for(int i=0;i<nums.length;i++)
+                {
+                    output.add(nums[i]);
+                }
+                list.add(new ArrayList<>(output));
+                return;
+            }
+
+            for(int i=index;i<nums.length;i++)
+            {
+                swap(nums,index,i);
+                solve(nums,index+1,list);
+                swap(nums,index,i);
+
+            }
+        }
+        public void swap(int[] nums,int i,int j)
+        {
+            int temp=nums[i];
+            nums[i]=nums[j];
+            nums[j]=temp;
+
+        }
+    }
+
 }

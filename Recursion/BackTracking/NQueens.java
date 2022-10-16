@@ -84,4 +84,110 @@ public class NQueens {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+    class Solution {
+        public List<List<String>> solveNQueens(int n) {
+
+            List<List<String>> list=new ArrayList<>();
+            char[][] output=new char[n][n];
+            for(int i=0;i<n;i++)
+            {
+                for(int j=0;j<n;j++)
+                {
+                    output[i][j]='.';
+                }
+            }
+            solve(0,n,list,output);
+            return list;
+        }
+        public void solve(int index,int n,List<List<String>> list,char[][] output)
+        {
+
+            if(index==n)
+            {
+
+                List<String> ans=new ArrayList<>();
+                for(int i=0;i<n;i++)
+                {
+                    String str="";
+                    for(int j=0;j<n;j++)
+                    {
+                        str=(str+output[i][j]);
+                    }
+                    ans.add(str);
+
+                }
+                list.add(new ArrayList<>(ans));
+                return;
+            }
+
+            for(int i=0;i<n;i++)
+            {
+                if(possible(output,index,i,n))
+                {
+                    output[index][i]='Q';
+                    solve(index+1,n,list,output);
+                    output[index][i]='.';
+                }
+
+
+            }
+
+        }
+        public boolean possible(char[][] nums,int x,int y,int n)
+        {
+
+
+            for(int i=0;i<n;i++)
+            {
+                if(nums[i][y]=='Q')
+                {
+
+                    return false;
+                }
+            }
+
+            for(int i=0;i<n;i++)
+            {
+                // System.out.println(nums[x][i]);
+                if(nums[x][i]=='Q')
+                {
+                    return false;
+                }
+            }
+
+
+            for(int i=x-1,j=y-1;i>=0 && j>=0;i--,j--)
+            {
+                // System.out.println(nums[i][j]);
+                if(nums[i][j]=='Q')
+                {
+                    return false;
+                }
+            }
+            for(int i=x-1,j=y+1;i>=0 && j<n;i--,j++)
+            {
+                // System.out.println(nums[i][j]);
+                if(nums[i][j]=='Q')
+                {
+                    return false;
+                }
+            }
+
+
+            return true;
+        }
+    }
+
 }
