@@ -79,4 +79,66 @@ public class minimumCoins {
 
     }
 
+
+
+
+
+
+
+    class Solution {
+        public int coinChange(int[] coins, int amount) {
+            int count=0;
+            int dp[][]=new int[coins.length][amount+1];
+            for(int[] arr:dp)
+            {
+                Arrays.fill(arr,-1);
+                //System.out.println(dp[index][amount]);
+                //System.out.println(Arrays.toString(arr));
+            }
+            int res= solve(coins,amount,0,dp);
+            if(res>=Integer.MAX_VALUE-1)
+            {
+                return -1;
+            }
+            return res;
+
+        }
+        public static int solve(int[] coins,int amount,int index,int[][] dp)
+        {
+
+            if(amount==0)
+            {
+                dp[index][amount]=0;
+
+                return 0;
+            }
+            if(index==coins.length)
+            {
+                return Integer.MAX_VALUE-1;
+            }
+
+            if(dp[index][amount]!=-1)
+            {
+
+                return dp[index][amount];
+            }
+
+            int take=Integer.MAX_VALUE;
+            if(coins[index]<=amount)
+            {
+                take=solve(coins,amount-coins[index],index,dp)+1;
+
+
+            }
+
+            int nottake=solve(coins,amount,index+1,dp);
+            return dp[index][amount]=Math.min(take,nottake);
+
+
+
+
+
+        }
+    }
+
 }
